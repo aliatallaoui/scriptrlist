@@ -1,3 +1,14 @@
+/*
+Theme Name: blist
+Version: 1.0
+Description: A child theme of Astra
+Template: astra
+Author: Administrator
+*/
+@import url("../../astra/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Bowlby+One+SC&amp;family=Cairo&amp;family=Smooch+Sans&amp;family=Tajawal:wght@200&amp;display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+/* Your awesome customization starts here */
 body,
 *,
 *::before,
