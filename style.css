@@ -117,24 +117,6 @@ select>option {
     cursor: pointer;
 }
 
-/*transition modal*/
-.risk_container.show {
-    display: block;
-    animation: modal-show 0.3s ease-in-out;
-}
-
-@keyframes modal-show {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/**/
-
 .short_text {
     display: none;
 }
@@ -280,7 +262,7 @@ select>option {
     color: #000;
 }
 
-/* style extracted from script*/
+
 
 .risk_button {
     background: #459e1a;

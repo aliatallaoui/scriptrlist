@@ -7,26 +7,37 @@
 /******************************* */
 let installbutton = document.querySelector('.demo');
 let select = document.getElementById('country');
+let instaled= document.querySelector('#instaled');
 
 function countryy(){
   let msg = document.querySelector('.msg');   
   let image= document.querySelector('#imageCountry');
   let imagedisplay= document.querySelector('.selected-con');
   let tips= document.querySelector('.tips');
-  let instaled= document.querySelector('#instaled')
+  
 
   let con_name = select.options[select.selectedIndex].innerText;
   msg.innerHTML = "Location: "+con_name;
   image.src= src=`https://file.riskblacklist.com/imgs/${select.value}.svg`;
   if(select.value){
+    if(select.value =='dz'){
       imagedisplay.style.display="block";
       tips.style.display="block";
       installbutton.style.display="inline-block";     
       createIframe();
+    }else {
+      imagedisplay.style.display="block";
+      tips.style.display="block";
+      installbutton.style.display="none ";
+      instaled.style.display="block"; 
+      instaled.innerText='You are in a Different Country';
+    }
     if (window.location.href.includes("install")){
         select.setAttribute('disabled','')
         installbutton.style.display="none ";
-        instaled.style.display="block"; 
+        instaled.style.display="block";
+        instaled.innerText='Installed Successfully';
+
       }
     }else{   
         imagedisplay.style.display="none";
@@ -36,14 +47,15 @@ function countryy(){
 
 }
 
-let instaled = document.querySelector('#instaled');   
+
  
 window.addEventListener('hashchange', function() { 
 if(window.location.href.includes('install')){
   select.setAttribute('disabled','')
   installbutton.style.display="none";
   instaled.style.display="block"; 
-  frame= document.querySelector('#iframet');
+  instaled.innerText='Installed Successfully';
+  let frame= document.querySelector('#iframet');
   frame.remove();
 }
   });

@@ -29,7 +29,7 @@
         document.head.appendChild(link);
         //end import css
 
-        const excludeKeywords = ['facebook', 'youtube', 'google', 'riskblacklist','riskblacklist','trueclient'];
+        const excludeKeywords = ['facebook', 'youtube', 'google', 'riskblacklist','trueclient'];
         const currentUrl = window.location.href;
         if (excludeKeywords.some(keyword => currentUrl.includes(keyword))) {
             return;
