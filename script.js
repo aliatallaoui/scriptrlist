@@ -23,7 +23,8 @@ function countryy(){
     if(select.value =='dz'){
       imagedisplay.style.display="block";
       tips.style.display="block";
-      installbutton.style.display="inline-block";     
+      installbutton.style.display="inline-block"; 
+      instaled.style.display="none";     
       createIframe();
     }else {
       imagedisplay.style.display="block";
