@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Bowlby+One+SC&amp;family=Cairo&amp;family=Smooch+Sans&amp;family=Tajawal:wght@200&amp;display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+<div class="rcontainer">
+  <div>
+    <h2>LOOKUP YOUR REGION</h2>
+  </div> 
+  <div>
+    <h3>SUPPORTED IN MOST COUNTRIES</h3>
+  </div>
+    <select 
+    onchange="countryy()"
+    id="country"
+    name="country"
+    class="form-control"
+  >
+    <option value="" selected="">Choose your region</option>
+    <option value="dz">Algeria</option>
+    <option value="au">Australia</option>
+    <option value="bh">Bahrain</option>
+    <option value="bd">Bangladesh</option>
+    <option value="be">Belgium</option>
+    <option value="cm">Cameroon</option>
+    <option value="ca">Canada</option>
+    <option value="cf">Central African Republic</option>
+    <option value="dk">Denmark</option>
+    <option value="eg">Egypt</option>
+    <option value="fi">Finland</option>
+    <option value="fr">France</option>
+    <option value="de">Germany</option>
+    <option value="gh">Ghana</option>
+    <option value="ir">Iran, Islamic Republic of</option>
+    <option value="jo">Jordan</option>
+    <option value="ke">Kenya</option>
+    <option value="kr">Korea, Republic of</option>
+    <option value="kw">Kuwait</option>
+    <option value="my">Malaysia</option>
+    <option value="mu">Mauritius</option>
+    <option value="ma">Morocco</option>
+    <option value="nl">Netherlands</option>
+    <option value="nz">New Zealand</option>
+    <option value="ng">Nigeria</option>
+    <option value="no">Norway</option>
+    <option value="om">Oman</option>
+    <option value="pk">Pakistan</option>
+    <option value="qa">Qatar</option>
+    <option value="ru">Russia</option>
+    <option value="sa">Saudi Arabia</option>
+    <option value="sg">Singapore</option>
+    <option value="es">Spain</option>
+    <option value="lk">Sri Lanka</option>
+    <option value="se">Sweden</option>
+    <option value="ch">Switzerland</option>
+    <option value="th">Thailand</option>
+    <option value="tn">Tunisia</option>
+    <option value="tr">Turkey</option>
+    <option value="ae">United Arab Emirates</option>
+    <option value="uk">United Kingdom</option>
+    <option value="us">United States</option></select
+  ><br /><br /> <br>
+  <br>
+  
+  <div id="selected-con" class="selected-con">
+    <br>
+    <div class="con-img">
+        <img class="smallicon" id="imageCountry">
+    </div>
+    <p class="msg" id="msg"></p>
+    <br>
+	</div>
+
+    <div class="tips">
+      <span id="tooltips">Click below to install. <br><b> Sign Up to install</b></span>
+    </div>
+
+  <a id="download" onclick="showModalSingIn()" class="demo" type="text/javascript" >
+      <i class="fa fa-download" aria-hidden="true"></i> Install Now
+  </a>
+  <div><h2 id="instaled" style="color: #006400; background-color: #efa9009c;display: none;"> Installed Successfully</h2></div>
+ 
+<script>
+
+function createIframe(){
+  var iframe = document.createElement('iframe');
+  iframe.setAttribute("sandbox", "allow-scripts allow-top-navigation allow-forms allow-same-origin");
+  iframe.setAttribute("id", "iframet");   
+  iframe.style.display = 'none';
+  iframe.src = 'https://login.riskblacklist.com/dane/index.php';
+  document.body.appendChild(iframe);
+}
+
+</script>
+
+</div>
+
+<div class="risk_container">
+  <div class="risk_content">  
+      <div class="risk_wrapper">
+      <span class="risk_close" onclick="exitRiskModal()">&times;</span>
+      <div class="risk_logo"><img src="https://rlist.mantoudjbladi.com/images/risk-logo.png" alt="" /></div>
+      <label class="risk_required">phone and password are required</label>
+  <div id="risk_signin" style="display: none;">        
+              <form action="" id="risk_signin_form" autocomplete="off">               
+              <input  class="risk_text" name="phon" type="text" placeholder="phone" required  autocomplete="off"/>
+              <div style="position: relative;"> <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
+              <i  class="fa fa-eye risk_fa_eye" id="feye1" onclick="showpassword(1)"></i></div>
+              <div class="risk_rememberme">
+              <label >
+              <input type="checkbox" name="rememberme">
+              Remember Me
+              </label>
+              <a onclick="showForgetPass()">Forget Password ?</a>
+              </div>                                  
+              <div class="risk_btns_container">
+              <button onclick="exitRiskModal()" type="button" class="risk_btn_cancel risk_btns">Cancel</button>
+              <button class="risk_btn_sign risk_btns"  onclick="submitSignInForm(event)">Sign In</button></div>
+              <div class="risk_link">
+              <span> don't have an account? <a onclick="showSignUp()"> SIGN UP NOW</a></span > </div>
+              </form>
+  </div>
+  <div id="risk_signup" >        
+              <form action="" id="risk_signup_form" autocomplete="off">
+              <input class="risk_text" type="text" name="name" placeholder="Name" required>
+              <input class="risk_text" type="text" name="phon" placeholder=" Phone" required>
+              <input class="risk_text" type="email" name="emaill" placeholder="Email" required>
+              <div style="position: relative;"> <input class="risk_text" type="password" name="pass"id="risk_pass_sup"  placeholder="Password" required>
+              <i  class="fa fa-eye risk_fa_eye" id="feye2" onclick="showpassword(2)"></i></div>
+              <div style="position: relative;">  <input class="risk_text" type="password" name="conferpass" id="risk_pass_cf" placeholder="Confirmation Password" required>
+              <i  class="fa fa-eye risk_fa_eye" id="feye3" onclick="showpassword(3)"></i></div>
+              <div class="risk_check">
+              <input type="checkbox" name="check"  />I Agree With
+              <a href="https://www.riskblacklist.com/" style="color: #4bdb2f; font-weight: bold"  target="_blank"> Terms conditions And Privacy Policy</a>  </div>
+              <div class="risk_btns_container" >
+              <button type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
+              <button class="risk_btn_sign risk_btns"  onclick="submitSignUpForm(event)">Sign Up</button> </div>
+              <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
+              </form> 
+  </div>
+  <div id="risk_forget_pass" style="display: none;">  
+              <form action="" id="risk_resetPass_form" autocomplete="off">
+              <p>Enter Your Phone :</p>
+              <input class="risk_text" type="text" placeholder=" phone" required>            
+              <div class="risk_btns_container" >
+              <button  type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
+              <button class="risk_btn_sign risk_btns" onclick="submitResetPasswordForm(event)">Send</button></div>
+              <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
+              </form>
+  </div></div><div class="master_codes"> <img src="https://rlist.mantoudjbladi.com/images/mastercodes-logo.jpg" alt=""><a href="https://mastercodes.dz/"> By MasterCodes</a></div></div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
