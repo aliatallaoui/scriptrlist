@@ -27,11 +27,18 @@ function countryy(){
       instaled.style.display="none";     
       createIframe();
     }else {
+      
       imagedisplay.style.display="block";
       tips.style.display="block";
       installbutton.style.display="none ";
-      instaled.style.display="block"; 
-      instaled.innerText='You are in a Different Country';
+      showSpinner(instaled.parentNode);
+      instaled.innerText='';
+      instaled.style.display="block";
+      setTimeout(() => {
+        closeSpinner();
+         instaled.style.display="block"; 
+         instaled.innerText='You are in a Different Country';
+        }, 1500);
     }
     if (window.location.href.includes("install")){
         select.setAttribute('disabled','')
@@ -44,6 +51,7 @@ function countryy(){
         imagedisplay.style.display="none";
         tips.style.display="none";
         installbutton.style.display="none";
+        instaled.style.display="none";
     }
 
 }
@@ -60,6 +68,20 @@ if(window.location.href.includes('install')){
   frame.remove();
 }
   });
+
+function showSpinner(div) {
+  if(!document.querySelector('.lds-hourglass')){
+    let spinner = document.createElement('div');
+      spinner.classList.add('lds-hourglass');
+      div.appendChild(spinner);
+    }
+  }
+  function closeSpinner() {
+    if(document.querySelector('.lds-hourglass')){
+      let spinner = document.querySelector('.lds-hourglass ');
+      spinner.remove();
+  }
+  }
   
 
 
