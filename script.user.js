@@ -25,7 +25,7 @@
         //import css
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = 'https://shadir69.github.io/modal/style.css?1111111';//css url
+        link.href = 'https://login.riskblacklist.com/wp-content/themes/blist/scriptrlist/custom.css';
         document.head.appendChild(link);
         //end import css
 
