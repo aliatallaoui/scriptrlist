@@ -631,6 +631,19 @@ select>option {
     border-color: #fbbc05 transparent #fbbc05 transparent;
     animation: lds-hourglass 1.2s infinite;
 }
+.hourglass:after {
+content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin-left: 8px;
+  box-sizing: border-box;
+  border: 8px solid currentColor;
+  border-color: #666 #666 #666 #000;
+  animation: lds-hourglass 2s infinite;
+  padding: 15px;
+}
 
 @keyframes lds-hourglass {
     0% {

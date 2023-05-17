@@ -70,14 +70,14 @@ if(window.location.href.includes('install')){
   });
 
 function showSpinner(div) {
-  if(!document.querySelector('.lds-hourglass')){
+  if(!document.querySelector('.hourglass')){
     let spinner = document.createElement('div');
       spinner.classList.add('lds-hourglass');
       div.appendChild(spinner);
     }
   }
   function closeSpinner() {
-    if(document.querySelector('.lds-hourglass')){
+    if(document.querySelector('.hourglass')){
       let spinner = document.querySelector('.lds-hourglass ');
       spinner.remove();
   }
