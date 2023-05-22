@@ -25,9 +25,9 @@ function countryy(){
       imagedisplay.style.display="block";
       tips.style.display="block";
       installbutton.style.display="none ";
-      showSpinner(instaled.parentNode);
       instaled.innerText='';
       instaled.style.display="block";
+      showSpinner(instaled.parentNode);
       setTimeout(() => {
         closeSpinner();
          instaled.style.display="block"; 
@@ -76,9 +76,6 @@ function showSpinner(div) {
       spinner.remove();
   }
   }
-  
-
-
 const riskSvg=`  <img src="https://rlist.mantoudjbladi.com/icons/7.svg" alt="" width="42" heigth="42">`;
 let URL_SEND='https://api-v1.riskblacklist.com';
 let token =localStorage.getItem("access_token"); 
