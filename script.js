@@ -103,6 +103,9 @@ let token =localStorage.getItem("access_token");
 
   async function submitSignInForm(event) {
   event.preventDefault();
+
+  myHeaders.append("Authorization", token);
+
   let label = document.querySelector('.risk_required');
   label.style.display = 'none';
   let formSignIn = document.querySelector('#risk_signin_form');
