@@ -100,7 +100,7 @@ let token =localStorage.getItem("access_token");
 
   async function submitSignInForm(event) {
   event.preventDefault();
-
+  myHeaders.delete("Authorization");
   myHeaders.append("Authorization", "RiskForEcom");
 
   let label = document.querySelector('.risk_required');
