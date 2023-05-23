@@ -84,6 +84,7 @@ let token =localStorage.getItem("access_token");
     installbutton.style.background="#f9c349";
     installbutton.style.color="#000";
     installbutton.style.textShadow="none";
+    installbutton.innerText='Install Now';
     installbutton.addEventListener("mouseover", (event) => {
     installbutton.style.background="#ffb100";
     });
@@ -133,6 +134,7 @@ let token =localStorage.getItem("access_token");
            installbutton.style.background="#f9c349";
            installbutton.style.color="#000";
            installbutton.style.textShadow="none";
+           installbutton.innerText='Install Now';
            
           }, 1000);
          
@@ -191,6 +193,7 @@ let token =localStorage.getItem("access_token");
            installbutton.style.background="#f9c349";
            installbutton.style.color="#000";
            installbutton.style.textShadow="none";
+           installbutton.innerText='Install Now';
           }, 1000);
       }else {
         label.innerText = responseData.errors.email ? responseData.errors.email[0] :
