@@ -34,7 +34,7 @@ function countryy(){
          instaled.innerText='You are in a Different Country';
         }, 1500);
     }
-    if (window.location.href.includes("install")){
+    if (window.location.href.includes("install")  && select.value =='dz'){
         select.setAttribute('disabled','')
         installbutton.style.display="none ";
         instaled.style.display="block";
