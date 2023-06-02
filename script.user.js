@@ -28,7 +28,7 @@
     document.addEventListener("DOMContentLoaded", async function() {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = 'https://login.riskblacklist.com/wp-content/themes/blist/scriptrlist/custom.css';
+        link.href = 'https://riskblacklist.com/wp-content/themes/blist/scriptrlist/custom.css';
         document.head.appendChild(link);
         const excludeKeywords = ['facebook', 'youtube', 'google','riskblacklist','trueclient','linkedin','twitter'];
         const currentUrl = window.location.href;
