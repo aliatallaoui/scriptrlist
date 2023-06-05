@@ -29,7 +29,7 @@
         link.rel = 'stylesheet';
         link.href = 'https://login.riskblacklist.com/wp-content/themes/blist/scriptrlist/custom.css';
         document.head.appendChild(link);
-        const excludeKeywords = ['facebook', 'youtube', 'google', 'riskblacklist','trueclient'];
+        const excludeKeywords = ['facebook', 'youtube', 'google','riskblacklist','trueclient','linkedin','twitter'];
         const currentUrl = window.location.href;
         if (excludeKeywords.some(keyword => currentUrl.includes(keyword))) {
             return;

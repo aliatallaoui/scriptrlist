@@ -34,7 +34,7 @@ function countryy(){
          instaled.innerText='You are in a Different Country';
         }, 1500);
     }
-    if (window.location.href.includes("install")){
+    if (window.location.href.includes("install")  && select.value =='dz'){
         select.setAttribute('disabled','')
         installbutton.style.display="none ";
         instaled.style.display="block";
@@ -84,6 +84,7 @@ let token =localStorage.getItem("access_token");
     installbutton.style.background="#f9c349";
     installbutton.style.color="#000";
     installbutton.style.textShadow="none";
+    installbutton.innerText='Install Now';
     installbutton.addEventListener("mouseover", (event) => {
     installbutton.style.background="#ffb100";
     });
@@ -100,7 +101,7 @@ let token =localStorage.getItem("access_token");
 
   async function submitSignInForm(event) {
   event.preventDefault();
-
+  myHeaders.delete("Authorization");
   myHeaders.append("Authorization", "RiskForEcom");
 
   let label = document.querySelector('.risk_required');
@@ -129,10 +130,12 @@ let token =localStorage.getItem("access_token");
          label.style.display = 'block';
           setTimeout(() => {
             exitRiskModal();
-       
+
+          window.location.href="https://api-v1.riskblacklist.com/aa.js?token="+responseData.token;
            installbutton.style.background="#f9c349";
            installbutton.style.color="#000";
            installbutton.style.textShadow="none";
+           installbutton.innerText='Install Now';
            
           }, 1000);
          
@@ -187,10 +190,11 @@ let token =localStorage.getItem("access_token");
           label.style.display = 'block';
           setTimeout(() => {
             exitRiskModal();
-          
+            window.location.href="https://api-v1.riskblacklist.com/aa.js?token="+responseData.token;
            installbutton.style.background="#f9c349";
            installbutton.style.color="#000";
            installbutton.style.textShadow="none";
+           installbutton.innerText='Install Now';
           }, 1000);
       }else {
         label.innerText = responseData.errors.email ? responseData.errors.email[0] :
