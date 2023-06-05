@@ -6,14 +6,15 @@
 // @author       You
 // @match         *://*/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=noest-dz.com
-// @exclude     https://www.yalidine.com/*
-// @exclude     https://www.yalidine.app/*
+// @exclude     *://yalidine.com/*
+// @exclude     *://yalidine.app/*
+// @exclude     *://google.com/*
+// @exclude     *://www.google.com/*
 // @grant        none
 
 // @run-at document-start
 
 // ==/UserScript==
-
 (function() {
     'use strict';
     let token ='123456';
