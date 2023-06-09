@@ -1,0 +1,223 @@
+
+<html>
+ <head>  
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+      }
+      
+      #d1 {
+        margin-top: 20px;
+        text-align: center;
+      }
+      
+      table {
+        width: 70%;
+        margin: auto;
+        border-collapse: separate;
+        border-spacing: 10px;
+      
+      }
+      
+      th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #dddddd;
+      }
+      .td_t1{
+        padding: 7px ;
+        text-align: center;
+        border: 1px solid #beb3ff52;
+        border-radius: 15px;
+        margin-left: 10px;
+        background-color:#bdb8ffc7;
+        border-spacing: 5px;
+        text-decoration-color: #f7f7f7;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: large;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+        
+      }
+      
+      th {
+        background-color: #ff2626;
+        font-weight: bold;
+        font-family:Arial, Helvetica, sans-serif;
+        
+      }
+      
+      tbody tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+      
+      tbody tr:hover {
+        background-color: #e0e0e0;
+        cursor: pointer;
+      }
+      
+      #t1 p {
+        margin: 0;
+        font-size: 20px;
+        color: #161616;
+      }
+      
+      #t1 #tabes1, #t1 #tabes4, #t1 #tabes7 {
+       
+        color: #181818;
+      }
+      
+      #t2 {
+        width: 80%;
+        border-collapse: collapse;
+        border-radius: 25px;
+      }
+      
+      #t2 th, #t2 td {
+        padding: 12px;
+        font-size: 14px;
+      }
+      
+      #t2 th {
+        background-color: #dfdcffc7;
+        font-weight: bold;
+      }
+      
+      #t2 td {
+        border: 1px solid #ddd;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      #t2 td:first-child {
+        text-align: center;
+      }
+      
+      #t2 td:nth-child(2) {
+        font-weight: bold;
+      }
+      
+      #t2 tbody td {
+        font-size: 13px;
+      }
+      
+      section {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      #s1, #s2, #s3 {
+        width: 100px;
+        padding: 11px;
+        background-color: #bdb8ffc7;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        border-radius:12px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+      }
+      
+      #c1 {
+        padding: 15px;
+        background-color: #d8d5ff83;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        width: 200px;
+        
+      }
+      
+      #d2 {
+        margin-top: 40px;
+      }
+      
+  
+      
+      @media only screen and (max-width: 600px) {
+        table {
+          width: 90%;
+        }
+      }
+      
+      @media only screen and (max-width: 400px) {
+        #s1, #s2, #s3 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+      
+
+      </style>
+</head>
+
+<body>
+  <br><br>
+    <div id="d1">
+<table id="t1">
+    <tr>
+<td class="td_t1"><p id="tabes1">number of users:</p><br><p id="res1">15</p></td>
+<td class="td_t1"><p id="tabes2">total order:</p><br><p id="res2">20</p></td>
+<td class="td_t1"><p id="tabes3">order nouest:</p><br><p id="res3">50</p></td>
+
+
+</tr>
+<tr><td class="td_t1"><p id="tabes4">orders zimbou:</p><br><p id="res4">16</p> </td>
+  <td class="td_t1"><p id="tabes5">orders yalidine: </p><br><p id="res5">18</p></td>
+  <td class="td_t1"><p id="tabes6">orders mystro:</p><br><p id="res6">30</p> </td> </tr>
+<tr><td class="td_t1"><p id="tabes7">request number:</p><br> <p id="res7">60</p></td>
+  <td class="td_t1"><p id="tabes8">deleverd order:</p><br><p id="res8">16</p> </td>
+  <td class="td_t1"><p id="tabes9">returned order:</p><br><p id="res9">79</p> </td></tr>
+</div>
+</table><br><br><br><br><br><br><br><br><br>
+<section>
+  <select name="DC" id="s1">
+<option value="mystro">mystro</option>
+<option value="nouest">nouest</option>
+<option value="zimou">zimou</option>
+</select>
+<select name="users" id="s2">
+  <option value="hakim">hakim</option>
+  <option value="abdou">abdou</option>
+  <option value="ali">ali</option>
+  </select>
+  <select name="stats" id="s3">
+    <option value="hakim">deleverd</option>
+    <option value="abdou">returned</option>
+    <option value="ali">in delevery</option>
+    </select>
+    <input type="search" id="c1" name="search" placeholder="search with traking">
+</section>
+<div id="d2">
+<table id="t2" border="1.5">
+    <thead>
+      <tr>
+        <th>N</th>
+        <th>tracking</th>
+        <th>status</th>
+        <th>DC</th>
+        <th>date</th>
+        <th>form user</th>
+        <th>date of last status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td>2542345-AY45</td>
+        <td>deleverd</td>
+        <td>norywest</td>
+        <td>2023/05/02</td>
+        <td>hakim</td>
+        <td>2020</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>116156U-TY15</td>
+        <td>returned</td>
+        <td>mystro</td>
+        <td>2023/05/02</td>
+        <td>ali</td>
+        <td>2023</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
