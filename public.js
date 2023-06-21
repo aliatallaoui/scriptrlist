@@ -316,7 +316,7 @@ async function logout() {
     headers: myHeaders,
     redirect: 'follow'
   };
-const response = await fetch("https://api-v1.riskblacklist.com/api/logout", requestOptions);
+const response = await fetch(URL_SEND+"/api/logout", requestOptions);
 if(response.ok)
 {
   localStorage.setItem('valid_token', false);
