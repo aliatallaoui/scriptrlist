@@ -17,7 +17,7 @@ const firebaseConfig = {
   
   // Function to handle phone number verification
   const verifyPhoneNumber = () => {
-    const phoneNumber = "+1234567890"; // Replace with the phone number you want to verify
+    const phoneNumber = "0558139753"; // Replace with the phone number you want to verify
   
     const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
   
