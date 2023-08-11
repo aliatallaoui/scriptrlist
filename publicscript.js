@@ -420,7 +420,8 @@ async function showModalDetails(td, buttonContainer, phoneNumbers, closeSpinner)
             <div class="risk_progress-bar">
             <div class="risk_progress-bar-fill" style="width: ${percentage<20?20:percentage}%;">
             <span class="risk_progress-bar-text">${percentage}%</span> </div> </div> </div>
-            <div class="master_codes"><div><img src="https://api-v1.riskblacklist.com/images/mastercodes-logo.png" alt=""><a href='https://mastercodes.dz/' target="_blank">  By MasterCodes</a></div>
+            <div class="master_codes"><div  style="display: flex;align-items: center;" >
+            <img src="https://api-v1.riskblacklist.com/images/mastercodes-logo.png" alt=""><a href='https://mastercodes.dz/' target="_blank">  By MasterCodes</a></div>
             <span  class="risk_logout" onclick="riskLogout()">Log Out</span>
             </div> </div> `;
 
