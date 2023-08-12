@@ -409,20 +409,21 @@ async function showModalDetails(td, buttonContainer, phoneNumbers, closeSpinner)
       }
       let percentage = Math.round((totalReturnedOrders / (totalReturnedOrders + totalDeliveredOrders)) * 100);
       modalDetails.classList.add("show");
-      modalDetails.innerHTML = `<div class="risk_content"> <span class="risk_close" onclick="exitRiskDetails()">&times;</span> <h1 class="risk_title">CLIENT DETAILS</h1>
-           <table class="risk_table"> <tr > <th>
-           <span class="short_text">Phone</span> <span class="long_text">Phone Number</span>${phoneSvg} </th>  ${data[0] && data[0].success ? `<td>${phoneNumbers[0]}</td>` : ''} ${data[1] && data[1].success ? `<td>${phoneNumbers[1]}</td>` : ''} </tr>
-           <tr> <th><span class="short_text">Name</span> <span class="long_text">Full Name</span>${nameSvg} </th>${data[0] && data[0].success ? `<td>${data[0].customer_details.Receiver?data[0].customer_details.Receiver:'...'}</td>` : ''}${data[1] && data[1].success ? `<td>${data[1].customer_details.Receiver?data[1].customer_details.Receiver:'...'}</td>` : ''}</tr>
-           <tr> <th> <span>Address</span>${adressSvg} </th>  ${data[0] && data[0].success ?`<td>${data[0].customer_details.City?data[0].customer_details.City:'...'}</td>` : ''} ${data[1] && data[1].success ?`<td>${data[1].customer_details.City?data[1].customer_details.City:'...'}</td>` : ''}</tr>
-           <tr> <th><span class="short_text">Delivered</span> <span class="long_text">Delivered Orders</span>${boxGreenSvg} </th>${data[0] && data[0].success ?`<td>${data[0].delivered_orders}</td> `: '' }${data[1] && data[1].success ?`<td>${data[1].delivered_orders}</td> `: '' }</tr>
-           <tr> <th> <span class="short_text">Cancelled</span><span class="long_text">Cancelled Orders</span>${boxRedSvg} </th>  ${data[0] && data[0].success ?`<td>${data[0].returned_orders}</td> `: '' } ${data[1] && data[1].success ?`<td>${data[1].returned_orders}</td> `: '' }</tr> </table>
-           <div class="risk_progress"> <div> <span>Risk Ratio</span>${riskSvg} </div>
-           <div class="risk_progress-bar">
-           <div class="risk_progress-bar-fill" style="width: ${percentage<20?20:percentage}%;">
-           <span class="risk_progress-bar-text">${percentage}%</span> </div> </div> </div>
-           <div class="master_codes"><div><img src="https://rlist.mantoudjbladi.com/images/mastercodes-logo.jpg" alt=""><a href='https://mastercodes.dz/' target="_blank">  By MasterCodes</a></div>
-           <span  class="risk_logout" onclick="riskLogout()">Log Out</span>
-           </div> </div> `;
+        modalDetails.innerHTML = `<div class="risk_content"> <span class="risk_close" onclick="exitRiskDetails()">&times;</span> <h1 class="risk_title">CLIENT DETAILS</h1>
+            <table class="risk_table"> <tr > <th>
+            <span class="short_text">Phone</span> <span class="long_text">Phone Number</span>${phoneSvg} </th>  ${data[0] && data[0].success ? `<td>${phoneNumbers[0]}</td>` : ''} ${data[1] && data[1].success ? `<td>${phoneNumbers[1]}</td>` : ''} </tr>
+            <tr> <th><span class="short_text">Name</span> <span class="long_text">Full Name</span>${nameSvg} </th>${data[0] && data[0].success ? `<td>${data[0].customer_details.Receiver?data[0].customer_details.Receiver:'...'}</td>` : ''}${data[1] && data[1].success ? `<td>${data[1].customer_details.Receiver?data[1].customer_details.Receiver:'...'}</td>` : ''}</tr>
+            <tr> <th> <span>Address</span>${adressSvg} </th>  ${data[0] && data[0].success ?`<td>${data[0].customer_details.City?data[0].customer_details.City:'...'}</td>` : ''} ${data[1] && data[1].success ?`<td>${data[1].customer_details.City?data[1].customer_details.City:'...'}</td>` : ''}</tr>
+            <tr> <th><span class="short_text">Delivered</span> <span class="long_text">Delivered Orders</span>${boxGreenSvg} </th>${data[0] && data[0].success ?`<td>${data[0].delivered_orders}</td> `: '' }${data[1] && data[1].success ?`<td>${data[1].delivered_orders}</td> `: '' }</tr>
+            <tr> <th> <span class="short_text">Cancelled</span><span class="long_text">Cancelled Orders</span>${boxRedSvg} </th>  ${data[0] && data[0].success ?`<td>${data[0].returned_orders}</td> `: '' } ${data[1] && data[1].success ?`<td>${data[1].returned_orders}</td> `: '' }</tr> </table>
+            <div class="risk_progress"> <div> <span>Risk Ratio</span>${riskSvg} </div>
+            <div class="risk_progress-bar">
+            <div class="risk_progress-bar-fill" style="width: ${percentage<20?20:percentage}%;">
+            <span class="risk_progress-bar-text">${percentage}%</span> </div> </div> </div>
+            <div class="master_codes"><div  style="display: flex;align-items: center;" >
+            <img src="https://api-v1.riskblacklist.com/images/mastercodes-logo.png" alt=""><a href='https://mastercodes.dz/' target="_blank">  By MasterCodes</a></div>
+            <span  class="risk_logout" onclick="riskLogout()">Log Out</span>
+            </div> </div> `;
 
       document.body.append(modalDetails);
       const progressBarFill = document.querySelector('.risk_progress-bar-fill');
