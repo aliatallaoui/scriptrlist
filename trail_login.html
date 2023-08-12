@@ -319,7 +319,7 @@
       </div>
     
     <style>
-       #tableinfo .risk_content svg {
+       #tableinfo .riskContent svg {
             width: 42px;
             height: 42px;
         }
@@ -415,7 +415,7 @@
      #tableinfo .master_codes span{
         color: #ccc;
       }
-     #tableinfo .risk_content a{
+     #tableinfo .riskContent a{
   color: #fff;
   text-decoration: none; 
     cursor: pointer;
@@ -463,8 +463,8 @@ let URL_SEND='https://api-v1.riskblacklist.com';
            
             var phoneNumber = phoneInput.value;
             phoneNumber = phoneNumber.replace(/\s|-/g, '');
-            if(document.querySelector('.risk_content')){
-                    document.querySelector('.risk_content').remove();    
+            if(document.querySelector('.riskContent')){
+                    document.querySelector('.riskContent').remove();    
                 }
             if (/^0\d{9}$/.test(phoneNumber) || /^[1-9]\d{8}$/.test(phoneNumber)) {
                
@@ -519,7 +519,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
                 let modalDetails = document.createElement("div");
                       
                modalDetails.innerHTML='';
-               modalDetails.innerHTML = `<div >
+               modalDetails.innerHTML = `<div class="riskContent">
            <table class="risk_table"> <tr > <th>
            <span class="short_text">Phone</span> <span class="long_text">Phone Number</span>${phoneSvg} </th> <td>${phone}</td>    </tr>
            <tr> <th><span class="short_text">Name</span> <span class="long_text">Full Name</span>${nameSvg} </th> <td>${name}</td></tr>
