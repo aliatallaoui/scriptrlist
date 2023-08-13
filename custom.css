@@ -152,11 +152,18 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 }
 /*sign up style**************************************/
 .risk_required{
-  color: #e4ff00;
+  color: red;
   display: none; 
-  background: #333;
+  background: #ff00001f;
   padding: 5px;
   border-radius:5px;
+  font-size: 1.3rem;
+  border: 1px red solid;
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
+  text-transform: capitalize;
+  width: 100%;
+  font-family: monospace;
 }
 .risk_rememberme{
      display: flex;

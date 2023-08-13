@@ -301,7 +301,7 @@
                 <div id="risk_forget_pass" style="display: none;">  
                             <form action="" id="risk_resetPass_form" autocomplete="off">
                             <p>Enter Your Phone or email :</p>
-                            <input class="risk_text" type="text" placeholder=" phone" required>            
+                            <input class="risk_text" type="text"  required>            
                             <div class="risk_btns_container" >
                             <button  type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
                             <button class="risk_btn_sign risk_btns" onclick="submitResetPasswordForm(event)">Send</button></div>
@@ -631,7 +631,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
           }, 1000);
          
         }else{          
-            label.innerText="email or password are incorrect"
+            label.innerText="email or phone and password are incorrect"
             label.style.display = 'block';
             }
       
