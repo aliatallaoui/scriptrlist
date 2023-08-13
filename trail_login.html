@@ -259,8 +259,9 @@
                 <label class="risk_required">phone or email and password are required</label>
                 <div id="risk_signin" style="display: none;">        
                             <form action="" id="risk_signin_form" autocomplete="off">               
-                            <input  class="risk_text" name="phon" type="text" placeholder="phone or email " required  autocomplete="off"/>
-                            <div style="position: relative;"> <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
+                            <input  class="risk_text" name="phon" id="phon_or_email" type="text" placeholder="phone or email " required  autocomplete="off"/>
+                            <div style="position: relative;"> 
+                            <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
                             <i  class="fa fa-eye risk_fa_eye" id="feye1" onclick="showpassword(1)"></i></div>
                             <div class="risk_rememberme">
                             <label >
@@ -279,7 +280,7 @@
                 <div id="risk_signup" >        
                             <form action="" id="risk_signup_form" autocomplete="off">
                             <input class="risk_text" type="text" name="name" placeholder="Name" required>
-                            <input class="risk_text" type="text" name="phon" placeholder=" Phone" required>
+                            <input class="risk_text" type="text" name="phon2" placeholder=" Phone" required>
                             <input class="risk_text" type="email" name="emaill" placeholder="Email" required>
                             <div style="position: relative;"> <input class="risk_text" type="password" name="pass"id="risk_pass_sup"  placeholder="Password" required>
                             <i  class="fa fa-eye risk_fa_eye" id="feye2" onclick="showpassword(2)"></i></div>
@@ -313,7 +314,9 @@
     </div>
     
     <style>
-       #tableinfo .riskContent svg {
+      
+        
+        #tableinfo .riskContent svg {
             width: 42px;
             height: 42px;
         }
@@ -589,8 +592,11 @@ let URL_SEND='https://api-v1.riskblacklist.com';
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("X-Api-Key", "3AQi9ysOlvV6ZsYyl5OiUe31ckl6XVndBcMRFHeY");
   
-
+  
   async function submitSignInForm(event) {
+    let phone_err = document.querySelector("#phon_or_email");
+    let pass_err = document.querySelector("#risk_pass_sin");
+    
   event.preventDefault();
   myHeaders.delete("Authorization");
   myHeaders.append("Authorization", "RiskForEcom");
@@ -614,47 +620,84 @@ let URL_SEND='https://api-v1.riskblacklist.com';
       });
       const responseData = await response.json();
       if (response.ok) {
-     
-    localStorage.setItem("access_token",responseData.token);
-          label.innerText="connect successfully ...";        
-          label.style.color = 'green';
-         label.style.display = 'block';
+        pass_err.style.border="none";
+        phone_err.style.border="none";
+        localStorage.setItem("access_token",responseData.token);
+        label.innerText="connect successfully ...";        
+        label.style.color = 'green';
+        label.style.display = 'block';
           setTimeout(() => {
             exitRiskModal();
 
-          window.location.href="https://api-v1.riskblacklist.com/aa.js?token="+responseData.token;
-           installbutton.style.background="#f9c349";
-           installbutton.style.color="#000";
-           installbutton.style.textShadow="none";
-           installbutton.innerText='Install Now';
            
           }, 1000);
          
         }else{          
             label.innerText="email or phone and password are incorrect"
             label.style.display = 'block';
+            pass_err.style.border="2px solid red";
+            phone_err.style.border="2px solid red";
             }
       
   } catch (error) {
       console.error('Error:', error);
   }
 }else {
-    label.innerText="email or password are required"
+    label.innerText="email or phone and password are required"
     label.style.display = 'block';
+    pass_err.style.border="2px solid red";
+    phone_err.style.border="2px solid red";
+    
   }
 
   }
 
   async function submitSignUpForm(event) {
+    const nameInput = document.querySelector('input[name="name"]');
+const emailInput = document.querySelector('input[name="emaill"]');
+const passwordInput = document.querySelector('input[name="pass"]');
+const confirmPasswordInput = document.querySelector('input[name="conferpass"]');
+const phoneInput = document.querySelector('input[name="phon2"]');
+
+if (nameInput.value === '') {
+  nameInput.style.border = '2px solid red';
+} else {
+  nameInput.style.border = '1px solid #000';
+}
+
+if (emailInput.value === '') {
+  emailInput.style.border = '2px solid red';
+} else {
+  emailInput.style.border = '1px solid #ccc';
+}
+
+if (passwordInput.value === '') {
+  passwordInput.style.border = '2px solid red';
+} else {
+  passwordInput.style.border = '1px solid #ccc';
+}
+
+if (confirmPasswordInput.value === '') {
+  confirmPasswordInput.style.border = '2px solid red';
+} else {
+  confirmPasswordInput.style.border = '1px solid #ccc';
+}
+
+if (phoneInput.value === '') {
+  phoneInput.style.border = '2px solid red';
+} else {
+  phoneInput.style.border = '1px solid #ccc';
+}
   event.preventDefault();
   let label = document.querySelector('.risk_required');
   label.style.display = 'none';
   let formSignUp = document.querySelector('#risk_signup_form');
 
   const formData = new FormData(formSignUp);
-  if(formData.get('name') && formData.get('emaill')&&formData.get('pass') &&formData.get('conferpass')&& formData.get('phon') ){
+  if(formData.get('name') && formData.get('emaill')&&formData.get('pass') &&formData.get('conferpass')&& formData.get('phon2') ){
     if(!formData.get('check')){
         label.style.display = 'block';
+        label.style.color = 'red';
         label.textContent='Accept the Terms conditions And Privacy Policy ';
     }else{
   const data =  {
@@ -662,7 +705,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
   email:formData.get('emaill'),
   password: formData.get('pass'),
   password_confirmation: formData.get('conferpass'),
-  phone_number: formData.get('phon')
+  phone_number: formData.get('phon2')
   };
   try {
   const response = await fetch(URL_SEND+'/api/registe_with_phone', {
@@ -684,6 +727,10 @@ let URL_SEND='https://api-v1.riskblacklist.com';
        
           }, 1000);
       }else {
+
+
+
+        
         label.innerText = responseData.errors.email ? responseData.errors.email[0] :
         responseData.errors.phone_number ? responseData.errors.phone_number[0] :
         responseData.errors.password ? responseData.errors.password[0] :
@@ -696,6 +743,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
   }}
 }else{
     label.style.display = 'block';
+    label.style.color = 'red';
     label.textContent='all information are required';
 }
   }
