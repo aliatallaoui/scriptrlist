@@ -254,69 +254,63 @@
     <div class="risk_container">
         <div class="risk_content">  
             <div class="risk_wrapper">
-            <span class="risk_close" onclick="exitRiskModal()">&times;</span>
-            <div class="risk_logo"><img src="https://api-v1.riskblacklist.com/images/risk-logo.png" alt="" /></div>
-            <label class="risk_required">phone and password are required</label>
-        <div id="risk_signin" style="display: none;">        
-                    <form action="" id="risk_signin_form" autocomplete="off">               
-                    <input  class="risk_text" name="phon" type="text" placeholder="phone" required  autocomplete="off"/>
-                    <div style="position: relative;"> <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
-                    <i  class="fa fa-eye risk_fa_eye" id="feye1" onclick="showpassword(1)"></i></div>
-                    <div class="risk_rememberme">
-                    <label >
-                    <input type="checkbox" name="rememberme">
-                    Remember Me
-                    </label>
-                    <a onclick="showForgetPass()">Forget Password ?</a>
-                    </div>                                  
-                    <div class="risk_btns_container">
-                    <button onclick="exitRiskModal()" type="button" class="risk_btn_cancel risk_btns">Cancel</button>
-                    <button class="risk_btn_sign risk_btns"  onclick="submitSignInForm(event)">Sign In</button></div>
-                    <div class="risk_link">
-                    <span> don't have an account? <a onclick="showSignUp()"> SIGN UP NOW</a></span > </div>
-                    </form>
+                <span class="risk_close" onclick="exitRiskModal()">&times;</span>
+                <div class="risk_logo"><img src="https://api-v1.riskblacklist.com/images/risk-logo.png" alt="" /></div>
+                <label class="risk_required">phone or email and password are required</label>
+                <div id="risk_signin" style="display: none;">        
+                            <form action="" id="risk_signin_form" autocomplete="off">               
+                            <input  class="risk_text" name="phon" type="text" placeholder="phone or email " required  autocomplete="off"/>
+                            <div style="position: relative;"> <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
+                            <i  class="fa fa-eye risk_fa_eye" id="feye1" onclick="showpassword(1)"></i></div>
+                            <div class="risk_rememberme">
+                            <label >
+                            <input type="checkbox" name="rememberme">
+                            Remember Me
+                            </label>
+                            <a onclick="showForgetPass()">Forget Password ?</a>
+                            </div>                                  
+                            <div class="risk_btns_container">
+                            <button onclick="exitRiskModal()" type="button" class="risk_btn_cancel risk_btns">Cancel</button>
+                            <button class="risk_btn_sign risk_btns"  onclick="submitSignInForm(event)">Sign In</button></div>
+                            <div class="risk_link">
+                            <span> don't have an account? <a onclick="showSignUp()"> SIGN UP NOW</a></span > </div>
+                            </form>
+                </div>
+                <div id="risk_signup" >        
+                            <form action="" id="risk_signup_form" autocomplete="off">
+                            <input class="risk_text" type="text" name="name" placeholder="Name" required>
+                            <input class="risk_text" type="text" name="phon" placeholder=" Phone" required>
+                            <input class="risk_text" type="email" name="emaill" placeholder="Email" required>
+                            <div style="position: relative;"> <input class="risk_text" type="password" name="pass"id="risk_pass_sup"  placeholder="Password" required>
+                            <i  class="fa fa-eye risk_fa_eye" id="feye2" onclick="showpassword(2)"></i></div>
+                            <div style="position: relative;">  <input class="risk_text" type="password" name="conferpass" id="risk_pass_cf" placeholder="Confirmation Password" required>
+                            <i  class="fa fa-eye risk_fa_eye" id="feye3" onclick="showpassword(3)"></i></div>
+                            <div class="risk_check">
+                            <input type="checkbox" name="check"  />I Agree With
+                        
+                            <a href="https://riskblacklist.com/terms-and-conditions/" style="color: #4bdb2f; font-weight: bold"  target="_blank"> Terms conditions </a> 
+                            AND
+                            <a href="https://riskblacklist.com/privacy-policy-2/" style="color: #4bdb2f; font-weight: bold"  target="_blank">Privacy Policy</a> 
+                            </div>
+                            <div class="risk_btns_container" >
+                            <button type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
+                            <button class="risk_btn_sign risk_btns"  onclick="submitSignUpForm(event)">Sign Up</button> </div>
+                            <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
+                            </form> 
+                </div>
+                <div id="risk_forget_pass" style="display: none;">  
+                            <form action="" id="risk_resetPass_form" autocomplete="off">
+                            <p>Enter Your Phone or email :</p>
+                            <input class="risk_text" type="text" placeholder=" phone" required>            
+                            <div class="risk_btns_container" >
+                            <button  type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
+                            <button class="risk_btn_sign risk_btns" onclick="submitResetPasswordForm(event)">Send</button></div>
+                            <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
+                            </form>
+                </div>  
+            </div> 
         </div>
-        <div id="risk_signup" >        
-                    <form action="" id="risk_signup_form" autocomplete="off">
-                    <input class="risk_text" type="text" name="name" placeholder="Name" required>
-                    <input class="risk_text" type="text" name="phon" placeholder=" Phone" required>
-                    <input class="risk_text" type="email" name="emaill" placeholder="Email" required>
-                    <div style="position: relative;"> <input class="risk_text" type="password" name="pass"id="risk_pass_sup"  placeholder="Password" required>
-                    <i  class="fa fa-eye risk_fa_eye" id="feye2" onclick="showpassword(2)"></i></div>
-                    <div style="position: relative;">  <input class="risk_text" type="password" name="conferpass" id="risk_pass_cf" placeholder="Confirmation Password" required>
-                    <i  class="fa fa-eye risk_fa_eye" id="feye3" onclick="showpassword(3)"></i></div>
-                    <div class="risk_check">
-                    <input type="checkbox" name="check"  />I Agree With
-                   
-                    <a href="https://riskblacklist.com/terms-and-conditions/" style="color: #4bdb2f; font-weight: bold"  target="_blank"> Terms conditions </a> 
-                    AND
-                    <a href="https://riskblacklist.com/privacy-policy-2/" style="color: #4bdb2f; font-weight: bold"  target="_blank">Privacy Policy</a> 
-                    
-                    <div class="risk_btns_container" >
-                    <button type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
-                    <button class="risk_btn_sign risk_btns"  onclick="submitSignUpForm(event)">Sign Up</button> </div>
-                    <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
-                    </form> 
-        </div>
-        <div id="risk_forget_pass" style="display: none;">  
-                    <form action="" id="risk_resetPass_form" autocomplete="off">
-                    <p>Enter Your Phone :</p>
-                    <input class="risk_text" type="text" placeholder=" phone" required>            
-                    <div class="risk_btns_container" >
-                    <button  type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
-                    <button class="risk_btn_sign risk_btns" onclick="submitResetPasswordForm(event)">Send</button></div>
-                    <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
-                    </form>
-        </div>
-        <div id="risk_insta">
-      
-      
-        </div>
-      
-      </div>
-     
     </div>
-      </div>
     
     <style>
        #tableinfo .riskContent svg {
@@ -740,7 +734,7 @@ function showSignUp() {
 
 function showForgetPass() {
     let label = document.querySelector('.risk_required');
-  label.style.display = 'none';
+    label.style.display = 'none';
     let modal = document.querySelector('.risk_container');
     let signIn = document.querySelector('#risk_signin');
     let signup = document.querySelector('#risk_signup');
