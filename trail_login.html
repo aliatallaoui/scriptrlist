@@ -504,7 +504,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
             closeSpinner();
             if(result.success){
 
-               let phone = phoneNumber;
+               let phone = result.phone;
                let delivred= result.delivered_orders ;
                let canceled = result.returned_orders ;
                let name = result.customer_details.Receiver ;
