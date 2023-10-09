@@ -555,7 +555,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
              }
             }else if( response.status==404){
                 let modalDetails = document.createElement("div");
-                let phone = phoneNumber;
+                let phone = maskPhoneNumber(phoneNumber);
                       modalDetails.innerHTML='';
                       modalDetails.innerHTML = `<div class='riskContent'>
                   <table class="risk_table"> <tr > <th>
@@ -802,6 +802,14 @@ function showForgetPass() {
     signup.style.display = 'none';
     signIn.style.display = 'none';
     forgetPass.style.display = 'block';
+}
+
+function maskPhoneNumber(input) {
+  let masked = input.slice(0, 4);
+  for (let i = 4; i < input.length; i++) {
+    masked += '*';
+  }
+  return masked;
 }
 
 function exitRiskModal() {
