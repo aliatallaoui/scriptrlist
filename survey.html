@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+        integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"/>
+
+    <title>استطلاع رأي</title>
+    <style>
+      html{
+        font-size: 14px;
+      }
+        body {
+            font-family: Cairo, Helvetica, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          
+        }     
+        .container_survey {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+           
+        }
+        .cont_head {
+            background-color: #008d5e;
+            color: #f2f2f2;
+            padding: 1rem;
+        }
+        .cont_head p{
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .cont_head h2 {
+            text-align: center;
+            margin: 0;
+        }
+        form{
+            padding: 1rem;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-block: .5rem;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        textarea ,.selectize-control{
+            width: 90%;
+            padding:.8rem;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            resize: none;
+        }
+        input[type="submit"] {
+            background-color: #008d5e;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #008d5ea1;
+        }
+        #msg_survey ,#err_survey{
+         display: none;
+          font-size: 1.3rem;
+          margin-block:.5rem ;
+          text-align: center;
+          font-weight: bold;
+        }
+        #msg_survey{
+          color: #008d5e;
+        }
+        #err_survey{
+          color: rgb(255, 99, 71);
+        }
+    </style>
+</head>
+<body>
+    <div class="container_survey">      
+      <div class="cont_head">
+        <h2>استطلاع رأي</h2>
+        <p>
+          
+          بعدما تم حل مشكل الروتور  , راح نتفرغو لحل المشاكل الأخرى     
+           </p>
+      </div>
+        <div id="msg_survey">شكرا لقد تم التسجيل بنجاح</div>
+        <div id="err_survey">    يرجى ادخال جميع الحقول </div>
+      <form id="surveyForm" action="https://api-v1.riskblacklist.com/api/submit-form" method="post">
+        <label for="name">الاسم الكامل :</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="phone">رقم الهاتف :</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label>اسم المتجر الذي تستخدمه ؟</label>
+        <select id='shop_website' name="shop_website" placeholder="اختر نوع متجرك">
+          <option></option>
+          <option> YouCan</option>                
+          <option> Shopify</option>
+          <option>WooCommerce</option>             
+        </select>     
+        <label>اسم شركة التوصيل التي تستعملها ؟</label>
+        <select id='livraison' name="delivery_company" multiple placeholder="شركة التوصيل">
+          <option></option>
+          <option> Yalidine</option>                
+          <option> Colivraison</option>                
+          <option> ZR Express</option>                
+          <option> NOEST EXPRESS</option>                
+          <option> Maystro Delivery</option>
+          <option>Zimou Express</option>             
+        </select>     
+        <label for="problems">
+اذكر المشاكل  الاخرى التي تعاني منها في التجارة الالكترونية ؟
+        </label>
+        <textarea id="problems" name="problems" rows="4" cols="50" aria-setsize="disable"></textarea>      
+
+        <label for="expectations">
+          ماذا تتوقع الخدمات الجديدة التي سنعلن عنها ؟
+
+        </label>
+        <textarea id="expectations" name="expectations" rows="4" cols="50" aria-setsize="disable"></textarea>
+        <input  type="submit" value="Submit">
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+      integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+   </script>
+    <script>
+        $("#shop_website").selectize({
+        delimiter: ",",
+        persist: false,
+        maxItems: null,
+        create: function (input) {
+            return {
+            value: input,
+            text: input,
+            };
+        }
+        });
+
+        $("#livraison").selectize({
+        delimiter: ",",
+        persist: false,
+        maxItems: null,
+        create: function (input) {
+            return {
+            value: input,
+            text: input,
+            };
+        }
+        });      
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        let msg_survey = document.getElementById('msg_survey');
+        let err_survey = document.getElementById('err_survey');
+        document.getElementById('surveyForm').addEventListener('submit', function (e) {
+          e.preventDefault(); 
+       
+          // Collect data from the form fields
+          const name = document.getElementById('name').value;
+          const phone = document.getElementById('phone').value;
+          const shopWebsiteSelect = document.getElementById('shop_website');
+          const deliveryCompanySelect = document.getElementById('livraison');
+          const expectations = document.getElementById('expectations').value;
+          const problems = document.getElementById('problems').value;
+          
+          // Convert selected options to comma-separated strings
+          const selectedShopWebsites = Array.from(shopWebsiteSelect.selectedOptions).map(option => option.value).join(', ');
+          const selectedDeliveryCompanies = Array.from(deliveryCompanySelect.selectedOptions).map(option => option.value).join(', ');
+       
+          // Prepare the request body
+          const requestBody = {
+            "name": name,
+            "phone_number": phone,
+            "store_name": selectedShopWebsites,
+            "delivery_company": selectedDeliveryCompanies,
+            "expectations": expectations
+          };
+          var myHeaders = new Headers();
+            myHeaders.append("Accept", "application/json");
+            myHeaders.append("Content-Type", "application/json");
+        
+          // Create Fetch options
+          const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(requestBody),
+            redirect: 'follow'
+          };
+
+          // Send the data using Fetch
+          fetch("https://api-v1.riskblacklist.com/api/submit-forms", requestOptions)
+          .then(response => {  
+             msg_survey.style.display='none';
+             err_survey.style.display='none';
+             if (response.status === 422) {
+              err_survey.style.display='block';
+            }else if (response.status ===201){
+              msg_survey.style.display='block';
+              surveyForm.reset();
+              shopWebsiteSelect.selectize.clear()
+              deliveryCompanySelect.selectize.clear()
+            }     
+          })    
+          .catch(error => console.log('error', error)); 
+        });
+      });
+    </script>
+</body>
+</html>
