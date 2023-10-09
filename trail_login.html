@@ -254,72 +254,69 @@
     <div class="risk_container">
         <div class="risk_content">  
             <div class="risk_wrapper">
-            <span class="risk_close" onclick="exitRiskModal()">&times;</span>
-            <div class="risk_logo"><img src="https://api-v1.riskblacklist.com/images/risk-logo.png" alt="" /></div>
-            <label class="risk_required">phone and password are required</label>
-        <div id="risk_signin" style="display: none;">        
-                    <form action="" id="risk_signin_form" autocomplete="off">               
-                    <input  class="risk_text" name="phon" type="text" placeholder="phone" required  autocomplete="off"/>
-                    <div style="position: relative;"> <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
-                    <i  class="fa fa-eye risk_fa_eye" id="feye1" onclick="showpassword(1)"></i></div>
-                    <div class="risk_rememberme">
-                    <label >
-                    <input type="checkbox" name="rememberme">
-                    Remember Me
-                    </label>
-                    <a onclick="showForgetPass()">Forget Password ?</a>
-                    </div>                                  
-                    <div class="risk_btns_container">
-                    <button onclick="exitRiskModal()" type="button" class="risk_btn_cancel risk_btns">Cancel</button>
-                    <button class="risk_btn_sign risk_btns"  onclick="submitSignInForm(event)">Sign In</button></div>
-                    <div class="risk_link">
-                    <span> don't have an account? <a onclick="showSignUp()"> SIGN UP NOW</a></span > </div>
-                    </form>
+                <span class="risk_close" onclick="exitRiskModal()">&times;</span>
+                <div class="risk_logo"><img src="https://api-v1.riskblacklist.com/images/risk-logo.png" alt="" /></div>
+                <label class="risk_required">phone or email and password are required</label>
+                <div id="risk_signin" style="display: none;">        
+                            <form action="" id="risk_signin_form" autocomplete="off">               
+                            <input  class="risk_text" name="phon" id="phon_or_email" type="text" placeholder="phone or email " required  autocomplete="off"/>
+                            <div style="position: relative;"> 
+                            <input class="risk_text" name="password" type="password" id="risk_pass_sin"  placeholder="Password" required autocomplete="off"/> 
+                            <i  class="fa fa-eye risk_fa_eye" id="feye1" onclick="showpassword(1)"></i></div>
+                            <div class="risk_rememberme">
+                            <label >
+                            <input type="checkbox" name="rememberme">
+                            Remember Me
+                            </label>
+                            <a onclick="showForgetPass()">Forget Password ?</a>
+                            </div>                                  
+                            <div class="risk_btns_container">
+                            <button onclick="exitRiskModal()" type="button" class="risk_btn_cancel risk_btns">Cancel</button>
+                            <button class="risk_btn_sign risk_btns"  onclick="submitSignInForm(event)">Sign In</button></div>
+                            <div class="risk_link">
+                            <span> don't have an account? <a onclick="showSignUp()"> SIGN UP NOW</a></span > </div>
+                            </form>
+                </div>
+                <div id="risk_signup" >        
+                            <form action="" id="risk_signup_form" autocomplete="off">
+                            <input class="risk_text" type="text" name="name" placeholder="Name" required>
+                            <input class="risk_text" type="text" name="phon2" placeholder=" Phone" required>
+                            <input class="risk_text" type="email" name="emaill" placeholder="Email" required>
+                            <div style="position: relative;"> <input class="risk_text" type="password" name="pass"id="risk_pass_sup"  placeholder="Password" required>
+                            <i  class="fa fa-eye risk_fa_eye" id="feye2" onclick="showpassword(2)"></i></div>
+                            <div style="position: relative;">  <input class="risk_text" type="password" name="conferpass" id="risk_pass_cf" placeholder="Confirmation Password" required>
+                            <i  class="fa fa-eye risk_fa_eye" id="feye3" onclick="showpassword(3)"></i></div>
+                            <div class="risk_check">
+                            <input type="checkbox" name="check"  />I Agree With
+                        
+                            <a href="https://riskblacklist.com/terms-and-conditions/" style="color: #4bdb2f; font-weight: bold"  target="_blank"> Terms conditions </a> 
+                            AND
+                            <a href="https://riskblacklist.com/privacy-policy-2/" style="color: #4bdb2f; font-weight: bold"  target="_blank">Privacy Policy</a> 
+                            </div>
+                            <div class="risk_btns_container" >
+                            <button type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
+                            <button class="risk_btn_sign risk_btns"  onclick="submitSignUpForm(event)">Sign Up</button> </div>
+                            <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
+                            </form> 
+                </div>
+                <div id="risk_forget_pass" style="display: none;">  
+                            <form action="" id="risk_resetPass_form" autocomplete="off">
+                            <p>Enter Your Phone or email :</p>
+                            <input class="risk_text" type="text"  required>            
+                            <div class="risk_btns_container" >
+                            <button  type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
+                            <button class="risk_btn_sign risk_btns" onclick="submitResetPasswordForm(event)">Send</button></div>
+                            <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
+                            </form>
+                </div>  
+            </div> 
         </div>
-        <div id="risk_signup" >        
-                    <form action="" id="risk_signup_form" autocomplete="off">
-                    <input class="risk_text" type="text" name="name" placeholder="Name" required>
-                    <input class="risk_text" type="text" name="phon" placeholder=" Phone" required>
-                    <input class="risk_text" type="email" name="emaill" placeholder="Email" required>
-                    <div style="position: relative;"> <input class="risk_text" type="password" name="pass"id="risk_pass_sup"  placeholder="Password" required>
-                    <i  class="fa fa-eye risk_fa_eye" id="feye2" onclick="showpassword(2)"></i></div>
-                    <div style="position: relative;">  <input class="risk_text" type="password" name="conferpass" id="risk_pass_cf" placeholder="Confirmation Password" required>
-                    <i  class="fa fa-eye risk_fa_eye" id="feye3" onclick="showpassword(3)"></i></div>
-                    <div class="risk_check">
-                    <input type="checkbox" name="check"  />I Agree With
-                   
-                    <a href="https://riskblacklist.com/terms-and-conditions/" style="color: #4bdb2f; font-weight: bold"  target="_blank"> Terms conditions </a> 
-                    AND
-                    <a href="https://riskblacklist.com/privacy-policy-2/" style="color: #4bdb2f; font-weight: bold"  target="_blank">Privacy Policy</a> 
-                    
-                    <div class="risk_btns_container" >
-                    <button type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
-                    <button class="risk_btn_sign risk_btns"  onclick="submitSignUpForm(event)">Sign Up</button> </div>
-                    <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
-                    </form> 
-        </div>
-        <div id="risk_forget_pass" style="display: none;">  
-                    <form action="" id="risk_resetPass_form" autocomplete="off">
-                    <p>Enter Your Phone :</p>
-                    <input class="risk_text" type="text" placeholder=" phone" required>            
-                    <div class="risk_btns_container" >
-                    <button  type="button" onclick="exitRiskModal()" class="risk_btn_cancel risk_btns">Cancel</button>
-                    <button class="risk_btn_sign risk_btns" onclick="submitResetPasswordForm(event)">Send</button></div>
-                    <div class="risk_link"><span> have an account? <a onclick="showSignIn()" >SIGN IN NOW</a></span></div>
-                    </form>
-        </div>
-        <div id="risk_insta">
-      
-      
-        </div>
-      
-      </div>
-     
     </div>
-      </div>
     
     <style>
-       #tableinfo .riskContent svg {
+      
+        
+        #tableinfo .riskContent svg {
             width: 42px;
             height: 42px;
         }
@@ -423,6 +420,9 @@
     </style>
     <script>
 
+
+
+
 const phoneSvg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" zoomAndPan="magnify" viewBox="0 0 375 374.999991" height="42" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="7b136a76da"><path d="M 80 75.382812 L 306.882812 75.382812 L 306.882812 299 L 80 299 Z M 80 75.382812 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#7b136a76da)"><path fill="#008c71" d="M 104.773438 77.828125 C 104.773438 77.828125 68.34375 118.424375 84.535156 153.539062 C 99.640625 186.238281 145.289062 262.132812 221.929688 293.191406 C 233.117188 297.730469 245.390625 299.515625 257.273438 297.355469 C 266.171875 295.738281 290.746094 290.390625 298.824219 280.761719 C 299.671875 279.746094 301.265625 278.558594 302.867188 276.109375 C 304.277344 273.949219 306.871094 271.105469 305.894531 266.257812 C 304.582031 259.738281 276.980469 234.292969 266.3125 224.667969 C 263.171875 221.839844 259.144531 220.125 254.929688 220.125 C 252.183594 220.125 249.6875 220.75 242.667969 222.5625 C 241.21875 235.785156 233.367188 244.535156 226.714244 242.019531 C 217.996094 252.589844 163.742188 214.929688 141.84375 170.761719 C 138.457031 163.933594 139.90625 155.699219 145.414062 150.433594 C 152.292969 143.871094 163.394531 132.765625 163.714244 130.507812 C 164.257812 126.730469 162.808594 124.390625 160.660156 119.542969 C 158.957031 115.722656 134.175781 91.453125 123.699219 81.308594 C 119.90625 77.632812 114.816406 75.457031 109.527344 75.640625 C 107.785156 75.707031 105.46875 76.992188 104.773438 77.828125 Z M 104.773438 77.828125 " fill-opacity="1" fill-rule="nonzero"/></g></svg>`;
 const nameSvg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" zoomAndPan="magnify" viewBox="0 0 375 374.999991" height="42" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="c520f370a6"><path d="M 90.113281 61.839844 L 285.113281 61.839844 L 285.113281 313.089844 L 90.113281 313.089844 Z M 90.113281 61.839844 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#c520f370a6)"><path fill="#2aa9cb" d="M 285.113281 294.078125 C 285.113281 227.054688 241.425781 172.753906 187.613281 172.753906 C 133.800781 172.753906 90.113281 227.054688 90.113281 294.078125 C 90.113281 304.53125 133.800781 313.050781 187.613281 313.050781 C 241.425781 313.050781 285.113281 304.53125 285.113281 294.078125 Z M 187.613281 61.878906 C 216.964244 61.878906 240.742188 85.621094 240.742188 114.929688 C 240.742188 144.238281 216.964244 167.980469 187.613281 167.980469 C 158.261719 167.980469 134.424375 144.238281 134.424375 114.929688 C 134.424375 85.621094 158.261719 61.878906 187.613281 61.878906 Z M 187.613281 61.878906 " fill-opacity="1" fill-rule="evenodd"/></g></svg>`;
 const adressSvg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" zoomAndPan="magnify" viewBox="0 0 375 374.999991" height="42" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="8a6525da75"><path d="M 81 103 L 294 103 L 294 279.765625 L 81 279.765625 Z M 81 103 " clip-rule="nonzero"/></clipPath><clipPath id="bcb25067f6"><path d="M 224 95.265625 L 251 95.265625 L 251 135 L 224 135 Z M 224 95.265625 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#8a6525da75)"><path fill="#4a9bf0" d="M 190.777344 104.222656 C 188.769531 102.898438 186.164062 102.898438 184.15625 104.222656 L 81.925781 171.890625 L 88.546875 181.898438 L 103.664062 171.894531 L 103.664062 273.984375 C 103.664062 277.296875 106.355469 279.996094 109.671875 279.996094 L 160.449219 279.996094 C 163.757812 279.996094 166.445312 277.304688 166.445312 273.984375 L 166.445312 201.511719 L 208.5 201.511719 L 208.5 273.984375 C 208.5 277.296875 211.1875 279.996094 214.507812 279.996094 L 265.285156 279.996094 C 268.59375 279.996094 271.28125 277.304688 271.28125 273.984375 L 271.28125 171.894531 L 286.402344 181.898438 L 293.019531 171.890625 Z M 190.777344 104.222656 " fill-opacity="1" fill-rule="nonzero"/></g><g clip-path="url(#bcb25067f6)"><path fill="#2d3e50" d="M 250.460938 95.265625 L 224.503906 95.265625 L 224.503906 117.738281 L 250.460938 134.921875 Z M 250.460938 95.265625 " fill-opacity="1" fill-rule="nonzero"/></g></svg>`;
@@ -447,6 +447,17 @@ let URL_SEND='https://api-v1.riskblacklist.com';
          }
 
         submit.addEventListener("click", function() {
+            submitdata();
+        }); 
+        document.getElementById('phone').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            submitdata(); 
+       
+        }
+  });
+
+        function submitdata(){
             let token =localStorage.getItem("access_token"); 
             if(!token){
               
@@ -485,9 +496,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
               
                 }}
             }
-    
- 
-        }); 
+        }
 
 
 
@@ -507,7 +516,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
             closeSpinner();
             if(result.success){
 
-               let phone = phoneNumber;
+               let phone = result.phone;
                let delivred= result.delivered_orders ;
                let canceled = result.returned_orders ;
                let name = result.customer_details.Receiver ;
@@ -546,9 +555,9 @@ let URL_SEND='https://api-v1.riskblacklist.com';
              }
             }else if( response.status==404){
                 let modalDetails = document.createElement("div");
-                let phone = phoneNumber;
+                let phone = maskPhoneNumber(phoneNumber);
                       modalDetails.innerHTML='';
-                      modalDetails.innerHTML = `<div class='risk_content'>
+                      modalDetails.innerHTML = `<div class='riskContent'>
                   <table class="risk_table"> <tr > <th>
                   <span class="short_text">Phone</span> <span class="long_text">Phone Number</span>${phoneSvg} </th> <td>${phone}</td>    </tr>
                   <tr> <th><span class="short_text">Name</span> <span class="long_text">Full Name</span>${nameSvg} </th> <td>....</td></tr>
@@ -595,8 +604,11 @@ let URL_SEND='https://api-v1.riskblacklist.com';
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("X-Api-Key", "3AQi9ysOlvV6ZsYyl5OiUe31ckl6XVndBcMRFHeY");
   
-
+  
   async function submitSignInForm(event) {
+    let phone_err = document.querySelector("#phon_or_email");
+    let pass_err = document.querySelector("#risk_pass_sin");
+    
   event.preventDefault();
   myHeaders.delete("Authorization");
   myHeaders.append("Authorization", "RiskForEcom");
@@ -620,47 +632,84 @@ let URL_SEND='https://api-v1.riskblacklist.com';
       });
       const responseData = await response.json();
       if (response.ok) {
-     
-    localStorage.setItem("access_token",responseData.token);
-          label.innerText="connect successfully ...";        
-          label.style.color = 'green';
-         label.style.display = 'block';
+        pass_err.style.border="none";
+        phone_err.style.border="none";
+        localStorage.setItem("access_token",responseData.token);
+        label.innerText="connect successfully ...";        
+        label.style.color = 'green';
+        label.style.display = 'block';
           setTimeout(() => {
             exitRiskModal();
 
-          window.location.href="https://api-v1.riskblacklist.com/aa.js?token="+responseData.token;
-           installbutton.style.background="#f9c349";
-           installbutton.style.color="#000";
-           installbutton.style.textShadow="none";
-           installbutton.innerText='Install Now';
            
           }, 1000);
          
         }else{          
-            label.innerText="email or password are incorrect"
+            label.innerText="email or phone and password are incorrect"
             label.style.display = 'block';
+            pass_err.style.border="2px solid red";
+            phone_err.style.border="2px solid red";
             }
       
   } catch (error) {
       console.error('Error:', error);
   }
 }else {
-    label.innerText="email or password are required"
+    label.innerText="email or phone and password are required"
     label.style.display = 'block';
+    pass_err.style.border="2px solid red";
+    phone_err.style.border="2px solid red";
+    
   }
 
   }
 
   async function submitSignUpForm(event) {
+    const nameInput = document.querySelector('input[name="name"]');
+const emailInput = document.querySelector('input[name="emaill"]');
+const passwordInput = document.querySelector('input[name="pass"]');
+const confirmPasswordInput = document.querySelector('input[name="conferpass"]');
+const phoneInput = document.querySelector('input[name="phon2"]');
+
+if (nameInput.value === '') {
+  nameInput.style.border = '2px solid red';
+} else {
+  nameInput.style.border = '1px solid #000';
+}
+
+if (emailInput.value === '') {
+  emailInput.style.border = '2px solid red';
+} else {
+  emailInput.style.border = '1px solid #ccc';
+}
+
+if (passwordInput.value === '') {
+  passwordInput.style.border = '2px solid red';
+} else {
+  passwordInput.style.border = '1px solid #ccc';
+}
+
+if (confirmPasswordInput.value === '') {
+  confirmPasswordInput.style.border = '2px solid red';
+} else {
+  confirmPasswordInput.style.border = '1px solid #ccc';
+}
+
+if (phoneInput.value === '') {
+  phoneInput.style.border = '2px solid red';
+} else {
+  phoneInput.style.border = '1px solid #ccc';
+}
   event.preventDefault();
   let label = document.querySelector('.risk_required');
   label.style.display = 'none';
   let formSignUp = document.querySelector('#risk_signup_form');
 
   const formData = new FormData(formSignUp);
-  if(formData.get('name') && formData.get('emaill')&&formData.get('pass') &&formData.get('conferpass')&& formData.get('phon') ){
+  if(formData.get('name') && formData.get('emaill')&&formData.get('pass') &&formData.get('conferpass')&& formData.get('phon2') ){
     if(!formData.get('check')){
         label.style.display = 'block';
+        label.style.color = 'red';
         label.textContent='Accept the Terms conditions And Privacy Policy ';
     }else{
   const data =  {
@@ -668,7 +717,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
   email:formData.get('emaill'),
   password: formData.get('pass'),
   password_confirmation: formData.get('conferpass'),
-  phone_number: formData.get('phon')
+  phone_number: formData.get('phon2')
   };
   try {
   const response = await fetch(URL_SEND+'/api/registe_with_phone', {
@@ -690,6 +739,10 @@ let URL_SEND='https://api-v1.riskblacklist.com';
        
           }, 1000);
       }else {
+
+
+
+        
         label.innerText = responseData.errors.email ? responseData.errors.email[0] :
         responseData.errors.phone_number ? responseData.errors.phone_number[0] :
         responseData.errors.password ? responseData.errors.password[0] :
@@ -702,6 +755,7 @@ let URL_SEND='https://api-v1.riskblacklist.com';
   }}
 }else{
     label.style.display = 'block';
+    label.style.color = 'red';
     label.textContent='all information are required';
 }
   }
@@ -740,7 +794,7 @@ function showSignUp() {
 
 function showForgetPass() {
     let label = document.querySelector('.risk_required');
-  label.style.display = 'none';
+    label.style.display = 'none';
     let modal = document.querySelector('.risk_container');
     let signIn = document.querySelector('#risk_signin');
     let signup = document.querySelector('#risk_signup');
@@ -748,6 +802,14 @@ function showForgetPass() {
     signup.style.display = 'none';
     signIn.style.display = 'none';
     forgetPass.style.display = 'block';
+}
+
+function maskPhoneNumber(input) {
+  let masked = input.slice(0, 4);
+  for (let i = 4; i < input.length; i++) {
+    masked += '*';
+  }
+  return masked;
 }
 
 function exitRiskModal() {
